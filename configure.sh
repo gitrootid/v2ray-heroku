@@ -11,6 +11,7 @@ install -m 755 /tmp/v2ray/v2ctl /usr/local/bin/v2ctl
 rm -rf /tmp/v2ray
 
 # V2Ray new configuration
+mkdir -p /usr/local/etc/v2ray
 install -d /usr/local/etc/v2ray
 cat << EOF > /usr/local/etc/v2ray/config.json
 {
