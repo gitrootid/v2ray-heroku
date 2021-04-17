@@ -1,5 +1,5 @@
 #!/bin/sh
-
+set -x
 # Download and install V2Ray
 mkdir /tmp/v2ray
 curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
@@ -11,9 +11,9 @@ install -m 755 /tmp/v2ray/v2ctl /usr/local/bin/v2ctl
 rm -rf /tmp/v2ray
 
 # V2Ray new configuration
-mkdir -p /usr/local/etc/v2ray
-install -d /usr/local/etc/v2ray
-cat << EOF > /usr/local/etc/v2ray/config.json
+mkdir -p /usr/local/v2ray
+install -d /usr/local/v2ray
+cat << EOF > /usr/local/v2ray/config.json
 {
     "inbounds": [
         {
@@ -42,4 +42,4 @@ cat << EOF > /usr/local/etc/v2ray/config.json
 EOF
 
 # Run V2Ray
-/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+/usr/local/bin/v2ray -config /usr/local/v2ray/config.json
